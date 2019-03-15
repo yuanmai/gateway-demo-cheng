@@ -23,10 +23,10 @@ public class ServiceHiApplication {
     @Value("${server.port}")
     String port;
 
-    @RequestMapping("/hi")
-    public String home(@RequestParam(value = "name") String name, HttpServletRequest httpServletRequest) {
-        String md5 = httpServletRequest.getHeader("md5");
-        return "hi " + name + " ,i am from port:" + port + " md5: " + md5;
+    @RequestMapping("/sleep")
+    public String home(@RequestParam(value = "seconds") String seconds, HttpServletRequest httpServletRequest) throws InterruptedException {
+        Thread.sleep(Integer.valueOf(seconds) * 1000);
+        return "I slept for " + seconds + " seconds";
     }
 }
 

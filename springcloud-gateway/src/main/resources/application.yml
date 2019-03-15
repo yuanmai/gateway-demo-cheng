@@ -15,7 +15,7 @@ spring:
       - id: ingredients-fallback
         uri: lb://SERVICE-HI
         predicates:
-        - Path=/hi
+        - Path=/sleep
         filters:
         - AddRequestHeader=md5, 213
 
